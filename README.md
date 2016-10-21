@@ -1,2 +1,2 @@
-# Various Scripts for a USB Rubber Ducky
+# Various Payloads for a USB Rubber Ducky
 
