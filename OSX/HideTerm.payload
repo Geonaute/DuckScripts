@@ -1,0 +1,29 @@
+REM Coded by HH1
+REM hh1rimrock@gmail.com
+REM
+REM Target:
+REM “Mac OS X”
+REM
+REM Description:
+REM This script will open a Terminal window
+REM And then shrink and hide it in the top
+REM of the screen using osascript
+REM 
+REM
+DELAY 1500
+GUI SPACE
+DELAY 30
+STRING “Terminal”
+DELAY 200
+ENTER
+DELAY 500
+STRING osascript \
+STRING  -e 'tell application "Terminal"' \
+STRING  -e 'set size of front window to {36, 36}' \
+STRING   -e 'set position of front window to {0,25}' \
+STRING   -e 'end tell'
+DELAY 200
+ENTER
+REM
+REM You can add whatever you want to the end here
+REM Keep in mind a terminal window is alread
